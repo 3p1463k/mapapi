@@ -1,0 +1,18 @@
+#for map
+folium
+
+#for dataset
+pandas
+
+#for api
+fastapi
+uvicorn
+
+#for code cleaning
+pre-commit
+
+#for template
+jinja2
+
+#for static files
+aiofiles
