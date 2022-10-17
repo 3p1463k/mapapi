@@ -13,7 +13,7 @@ homepage_router = APIRouter()
 async def home(request: Request):
 
     start_coords = (50.65973, 14.04430)
-    mymap = folium.Map(location=start_coords, zoom_start=14)
+    mymap = folium.Map(location=start_coords, zoom_start=18)
 
     mymap1 = mymap._repr_html_()
     context = {"request": request, "mymap": mymap1}
