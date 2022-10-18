@@ -16,3 +16,6 @@ jinja2
 
 #for static files
 aiofiles
+
+#for file processing
+python-multipart
