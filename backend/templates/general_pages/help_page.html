@@ -1,0 +1,50 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+  <title>Create Map</title>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+  <h3 class="ex1">
+    Upload CSV, JSON, Excel
+  </h3>
+
+<h5>The uploaded data must have 4 columns, column names dont matter </h5>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Latitude</th>
+      <th scope="col">Longitude</th>
+      <th scope="col">Description</th>
+      <th scope="col">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>50.65973</td>
+      <td>14.04430</td>
+      <td>some name</td>
+      <td>some value</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>50.65973</td>
+      <td>14.04430</td>
+      <td>some name</td>
+      <td>some value</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+{% endblock %}
