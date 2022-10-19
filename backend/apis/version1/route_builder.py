@@ -4,6 +4,7 @@ from fastapi.templating import Jinja2Templates
 import pandas as pd
 import folium
 import shutil
+import os
 
 builder_router = APIRouter()
 templates = Jinja2Templates(directory="templates")
@@ -22,6 +23,10 @@ async def generated(
     value: int = Form(),
     lat: float = Form(),
     lon: float = Form(),
+    circle_size: int = Form(),
+    exampleRadios: str = Form(),
+    colorpickr: str = Form(),
+    circle_weight: int = Form(),
 ):
     df = pd.DataFrame(
         {"Lat": lat, "Lon": lon, "Des": description, "Val": value}, index=[0]
@@ -33,13 +38,16 @@ async def generated(
 
         folium.CircleMarker(
             location=[coord[0], coord[1]],
-            radius=30,
-            weight=2,
-            fill_color="#000",
+            radius=circle_size,
+            weight=circle_weight,
+            fill_color=colorpickr,
             color="#000",
             popup=[coord[2], coord[3]],
         ).add_to(mymap)
-    mymap1 = mymap._repr_html_()
-    context = {"request": request, "mymap": mymap1}
+
+    download_generated = mymap.save("static/tmp/files/map.html")
+
+    mymap = mymap._repr_html_()
+    context = {"request": request, "mymap": mymap}
 
     return templates.TemplateResponse("/general_pages/builder_page.html", context)
