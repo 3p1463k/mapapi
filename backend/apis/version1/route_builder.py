@@ -5,17 +5,17 @@ import pandas as pd
 import folium
 import shutil
 
-manual_router = APIRouter()
+builder_router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 
-@manual_router.get("/manual")
+@builder_router.get("/builder")
 async def map(request: Request):
     context = {"request": request}
-    return templates.TemplateResponse("/general_pages/create_manualy.html", context)
+    return templates.TemplateResponse("/general_pages/builder_page.html", context)
 
 
-@manual_router.post("/generated")
+@builder_router.post("/builder")
 async def generated(
     request: Request,
     description: str = Form(),
@@ -42,6 +42,4 @@ async def generated(
     mymap1 = mymap._repr_html_()
     context = {"request": request, "mymap": mymap1}
 
-    return templates.TemplateResponse("/general_pages/generated.html", context)
-
-    # return {"description": description, "value":value, "lat":lat, "lon":lon}
+    return templates.TemplateResponse("/general_pages/builder_page.html", context)
