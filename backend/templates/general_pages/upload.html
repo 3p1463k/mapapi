@@ -7,19 +7,21 @@
 {% block content %}
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="row justify-content-center ">
 
-<h3 class = "mt-5">
-  Upload CSV, JSON, Excel
+<h3 class = "mt-5 text-center fw-bold">
+  Upload CSV,
+  <small class="text-muted"> JSON, Excel</small>
+
 </h3>
 
 <form action="/uploadfiles/" enctype="multipart/form-data" method="post">
  <div class="row justify-content-center">
-   <div class="col-md-4 ">
+   <div class="col-md-4 mt-2">
      <div class="mb-3">
        <input class="form-control " name="file" type="file" id="formFile">
      </div>
-     <div class="d-grid gap-2 col-6 mx-auto">
+     <div class="d-grid gap-2 col-6 mx-auto mt-1">
         <button  class="btn btn-outline-dark" type="submit">Generate Map</button>
      </div>
    </div>
@@ -31,17 +33,17 @@
 </div>
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="row justify-content-center ">
 
 <form action="/manual" method="get">
-<h3>
+<h3 class="h3 text-center mt-5 fw-bold mb-1">
   To enter manually or see example press bellow
 </h3>
 
 <div class="row justify-content-center">
   <div class="col-md-4 ">
     <div class="d-grid gap-2 col-6 mx-auto">
-       <button  class="btn btn-outline-dark" type="submit" ">See example</button>
+       <button  class="btn btn-outline-dark mt-2" type="submit" ">See example</button>
     </div>
   </div>
 </div>

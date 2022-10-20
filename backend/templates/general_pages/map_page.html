@@ -5,7 +5,26 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container">
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-1 mt-4">
+
+  <div>
+    <a href="/static/tmp/files/map.html" download class="button-link btn btn-outline-dark"> Download </a>
+  </div>
+
+  <div class="mt-4">
+    <a href="/upload" class="button-link btn btn-outline-dark">Upload New</a>
+  </div>
+
+  </div>
+
+  <div class="col" >
     {{ map | safe }}
   </div>
+</div>
+
+</div>
+
+
 {% endblock %}

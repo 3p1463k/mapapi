@@ -9,6 +9,7 @@
   <div class="row">
   <div class="col-1 mt-4" >
 
+
   <form action="/builder" enctype="multipart/form-data" method="post">
 
   <div class="form-check mb-2">
@@ -17,33 +18,34 @@
     Pin
     </label>
   </div>
-  <div class="form-check mb-4">
+  <div class="form-check mb-2">
     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
     <label class="form-check-label" for="exampleRadios2">
     Circle
     </label>
   </div>
 
-  <div class="mb-2">
+  <div class="mb-1">
   <label for="customRange2" class="form-label">Circle size</label>
   <input type="range" name="circle_size" class="form-range" min="0" max="500" value=50 id="customRange2">
   </div>
 
   <div class="mb-1">
   <label for="customRange3" class="form-label">Circle weight</label>
-  <input type="range" name=circle_weight class="form-range" value = 1 min="0" max="15" step="1" id="customRange3">
+  <input type="range" name=circle_weight class="form-range" value=1 min="0" max="15" step="1" id="customRange3">
+  </div>
+
+  <div class="mb-1">
+  <label for="customRange4" class="form-label">Zoom</label>
+  <input type="range" name=zoom class="form-range" value=17 min="0" max="35" step="1" id="customRange4">
   </div>
 
   <div>
 
     <label for="exampleColorInput" class="form-label">Circle fill</label>
-    <input type="color" name="colorpickr" class="form-control form-control-color mb-4" id="exampleColorInput" value="#563d7c" title="Choose your color">
+    <input type="color" name="colorpickr" class="form-control form-control-color mb-2" id="exampleColorInput" value="#563d7c" title="Choose your color">
 
   </div>
-
-
-
-
       <div class= "mb-2">
         <label>Latitude</label>
         <input type="text" name="lat" value=36.11229079304089 class="form-control">
@@ -65,12 +67,10 @@
       </div>
 
       <div >
-      <button  class="btn btn-outline-dark mt-4" type="submit">Generate</button>
+      <button  class="btn btn-outline-dark mt-3" type="submit">Generate</button>
       </div>
 
   </form>
-
-
 
   </div>
 

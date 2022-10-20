@@ -13,7 +13,7 @@ templates = Jinja2Templates(directory="templates")
 @builder_router.get("/builder")
 async def map(request: Request):
     context = {"request": request}
-    return templates.TemplateResponse("/general_pages/builder_page.html", context)
+    return templates.TemplateResponse("/general_pages/builder.html", context)
 
 
 @builder_router.post("/builder")
@@ -27,12 +27,13 @@ async def generated(
     exampleRadios: str = Form(),
     colorpickr: str = Form(),
     circle_weight: int = Form(),
+    zoom: int = Form(),
 ):
     df = pd.DataFrame(
         {"Lat": lat, "Lon": lon, "Des": description, "Val": value}, index=[0]
     )
     start_coords = (lat, lon)
-    mymap = folium.Map(location=start_coords, zoom_start=17)
+    mymap = folium.Map(location=start_coords, zoom_start=zoom)
 
     for coord in df[["Lat", "Lon", "Des", "Val"]].values:
 
@@ -50,4 +51,4 @@ async def generated(
     mymap = mymap._repr_html_()
     context = {"request": request, "mymap": mymap}
 
-    return templates.TemplateResponse("/general_pages/builder_page.html", context)
+    return templates.TemplateResponse("/general_pages/builder.html", context)

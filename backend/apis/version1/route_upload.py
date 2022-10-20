@@ -5,17 +5,17 @@ import pandas as pd
 import folium
 import shutil
 
-map_router = APIRouter()
+upload_router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 
-@map_router.get("/map")
+@upload_router.get("/upload")
 async def map(request: Request):
     context = {"request": request}
-    return templates.TemplateResponse("/general_pages/create_map.html", context)
+    return templates.TemplateResponse("/general_pages/upload.html", context)
 
 
-@map_router.post("/uploadfiles/")
+@upload_router.post("/uploadfiles/")
 async def create_upload_file(request: Request, file: UploadFile = File(...)):
 
     with open(f"static/tmp/files/{file.filename}", "wb") as f:
@@ -24,20 +24,24 @@ async def create_upload_file(request: Request, file: UploadFile = File(...)):
 
         def extract_dok(dokument):
             df = pd.read_csv(dokument, delimiter=",")
-            mymap = folium.Map(location=[df.Lat.mean(), df.Lon.mean()], zoom_start=14)
+            df.columns = ["Lat", "Lon", "Des", "Val"]
+            mymap = folium.Map(location=[df.Lat.mean(), df.Lon.mean()], zoom_start=16)
 
             for coord in df[["Lat", "Lon", "Des", "Val"]].values:
-                if coord[2] == "WIFI":
-                    folium.CircleMarker(
-                        location=[coord[0], coord[1]],
-                        radius=1,
-                        color="red",
-                        popup=["Description:", coord[2], "Value:", coord[3]],
-                    ).add_to(mymap)
 
+                folium.CircleMarker(
+                    location=[coord[0], coord[1]],
+                    radius=1,
+                    color="red",
+                    popup=["Description:", coord[2], "Value:", coord[3]],
+                ).add_to(mymap)
+
+            download_generated = mymap.save("static/tmp/files/map.html")
             return mymap._repr_html_()
+
+        global map
 
         map = extract_dok(file_name)
         context = {"request": request, "map": map}
 
-    return templates.TemplateResponse("/general_pages/map_page.html", context)
+    return templates.TemplateResponse("/general_pages/download_page.html", context)

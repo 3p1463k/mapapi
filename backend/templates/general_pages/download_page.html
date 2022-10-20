@@ -1,34 +1,36 @@
 {% extends "shared/base.html" %}
 
 {% block title %}
-  <title>Create Map</title>
+  <title>Download Map</title>
 {% endblock %}
 
+
 {% block content %}
-<div class="container-fluid">
-  <div class="row">
-    <h3 class ="mt-2">
-      Download your Map
+<div class="container">
+  <div class="row ">
+
+    <h3 class ="h3 text-center mt-1 fw-bold " >
+      Download the Map Html file or open in new tab
     </h3>
   </div>
 
-  <div class="container">
-    <div class="row">
+  <div class="row justify-content-center">
+    <div class="col ">
+      <div class="d-grid gap-2 col-4 mx-auto">
+        <a href="/static/tmp/files/map.html" download class="mb-2 button-link btn btn-outline-dark">Download</a>
+      </div>
+   </div>
 
+     <div class="col ">
+       <div class="d-grid gap-2 col-4 mx-auto">
+         <a href="/static/tmp/files/map.html" target="_blank" class="mb-2 button-link btn btn-outline-dark">Open in Tab</a>
+       </div>
+    </div>
 
-    {{ mymap | safe }}
+   {{ map | safe }}
 
   </div>
-
-
-
-
-
-
-
-
-
-
-
 </div>
+
+
 {% endblock %}

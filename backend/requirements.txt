@@ -19,3 +19,6 @@ aiofiles
 
 #for file processing
 python-multipart
+
+#image processing
+pillow

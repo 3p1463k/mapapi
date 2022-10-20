@@ -2,46 +2,53 @@
 
 
 {% block title %}
-  <title>Create Map</title>
+  <title>Help Map</title>
 {% endblock %}
 
 {% block content %}
 
 
 <div class="container-fluid">
+  <div class="row justify-content-center">
+    <h4 class ="h4 text-center fw-bold mt-2">The data must have 4 columns, column names dont matter </h4>
 
-<h5>The data must have 4 columns, column names dont matter </h5>
+    <p class= " text-center">However, <mark>columns order does</mark>, columns must be ordered as in the example bellow.</p>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Latitude</th>
-      <th scope="col">Longitude</th>
-      <th scope="col">Description</th>
-      <th scope="col">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>50.65973</td>
-      <td>14.04430</td>
-      <td>some name</td>
-      <td>some value</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>50.65973</td>
-      <td>14.04430</td>
-      <td>some name</td>
-      <td>some value</td>
-    </tr>
-  </tbody>
-</table>
+  </div>
+
+  <table class="table table-bordered mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Latitude</th>
+        <th scope="col">Longitude</th>
+        <th scope="col">Description</th>
+        <th scope="col">Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>50.65973</td>
+        <td>14.04430</td>
+        <td>some name</td>
+        <td>some value</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>50.65973</td>
+        <td>14.04430</td>
+        <td>some name</td>
+        <td>some value</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+    <div class="row justify-content-center">
+      <h4 class ="h4 text-center mt-2">For now only CSV file with comma delimeter is accpted. </h4>
+    </div>
 
 </div>
-
-
 
 {% endblock %}
